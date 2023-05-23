@@ -18,6 +18,9 @@ class Toilet{
         this.building = building;
         this.floor = floor;
     }
+    Toilet(){
+
+    }
     public static void main(String[] args){
         float [] at = {0.11f, 0.21f};
         String path = "picture\\toilet1.jpg";
@@ -45,6 +48,17 @@ class Toilet{
     public void setbuilding(Building x){
         this.building = x;
     }
+    public void setbuilding(int x){
+        this.floor = x;
+    }
+    public void setToilet(Toilet t){
+        this.idToilet = t.idToilet;
+        this.locationToilet = t.locationToilet;
+        this.nameToilet = t.nameToilet;
+        this.pictureToilet = t.pictureToilet;
+        this.building = t.building;
+        this.floor = t.floor;
+    }
 
 
     public String getidToilet(){
@@ -61,6 +75,9 @@ class Toilet{
     }
     public Building getBuilding(){
         return this.building;
+    }
+    public int getFloor(){
+        return this.floor;
     }
 
 

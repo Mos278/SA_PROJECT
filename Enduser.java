@@ -1,5 +1,8 @@
+import java.util.Scanner;
+
 class Enduser{
     public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
         float[] UserCoordinate = {1.1f,5f};
         
         System.out.println(UserCoordinate);
@@ -7,10 +10,8 @@ class Enduser{
 
         AssessLocation location = new AssessLocation(UserCoordinate);
         WhereIsToilet whereIsToilet = new WhereIsToilet(location);
-        //WhereIsToilet WhereIsToilet = new WhereIsToilet(UserCoordinate);
 
-        //whereIsToilet.ShowToilet();
-      
+        whereIsToilet.createNotification();
 
     }
     // test

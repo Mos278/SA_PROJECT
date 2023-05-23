@@ -7,6 +7,8 @@ class DB_Main{
     private ArrayList<Toilet> toilet_list;
     private ArrayList<Building> buildings_list;
     private ArrayList<Map> map_list;
+    private ArrayList<User_Admin> Admin_list;
+
 
     DB_Main(){
         this.noti_list = new ArrayList<Notification>();
@@ -14,6 +16,7 @@ class DB_Main{
         this.toilet_list = new ArrayList<Toilet>();
         this.buildings_list = new ArrayList<Building>();
         this.map_list = new ArrayList<Map>();
+        this.Admin_list = new ArrayList<User_Admin>();
     }
 
     public void update(Notification x){
@@ -31,15 +34,25 @@ class DB_Main{
     public void update(Map x){
         this.map_list.add(x);
     }
-
+    public void update(User_Admin x){
+        this.Admin_list.add(x);
+    }
 
     public DB_Main GET_DB_Main(){
         return this;
+    }
+    public ArrayList<Toilet> getToilet(){
+        return toilet_list;
     }
 
     public ArrayList<Building> getBuilding(){
         return this.buildings_list;
     }
+    public ArrayList<User_Admin> getAdmin(){
+        return this.Admin_list;
+    }
+
+    
 
     public static void main(String[] args) {
         DB_Main db = new DB_Main();
@@ -47,11 +60,12 @@ class DB_Main{
         float [] at = {0.11f, 0.21f};
         Toilet t1 = new Toilet("001",at,"toilet1","picture\\toilet1.jpg",null, 0);
         Toilet t2 = new Toilet("002",at,"toilet2","picture\\toilet2.jpg",null, 0);
-
+        User_Admin ad2 = new User_Admin("NongTrent","66","Admin");
         Notification n1 = new Notification("001", t1, LocalDateTime.now(), "picture\\toilet3.jpg");
         db.update(t1);
         db.update(t2);
         db.update(n1);
+        db.update(ad2);
         System.out.println(db.toilet_list.toString()); //show toilet_list only
         System.out.println(db.toString()); //show all DB_Main
     }
@@ -63,7 +77,8 @@ class DB_Main{
            "History = "+ this.history_list.toString()+"\n"+
            "Notification = "+ this.noti_list.toString()+"\n"+
            "Building = "+ this.buildings_list.toString()+"\n"+
-           "Map = "+ this.map_list.toString()+"\n";
+           "Map = "+ this.map_list.toString()+"\n"+
+           "Admin = "+ this.Admin_list.toString()+"\n";
     }
     /*public static void printDB(DB_Main db){
         System.out.println("Toilet = "+ db.toilet_list.toString()+"\n");

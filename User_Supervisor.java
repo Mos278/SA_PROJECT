@@ -3,7 +3,7 @@ class User_Supervisor {
     private String password;
     //private Boolean status;
     private String role = "Supervisor";
-    WhereIsToilet IamSuperv = new WhereIsToilet("somchai","123","Supervisor");
+   // private static WhereIsToilet IamSuperv = new WhereIsToilet("somying","321","Supervisor");
     public User_Supervisor(String username, String password) {
         this.username = username;
         this.password = password;
@@ -15,18 +15,13 @@ class User_Supervisor {
         this.password = password;
         this.role = role;
     }
-    public void TerminateAdmin(User_Admin ad){
+    public static void TerminateAdmin(User_Admin ad){
         ad.setRole("NotAdmin");
     }
+/*
     public static void main(String[] args) {
-        // Create an instance of User_Supervisor
+       
 
-        User_Supervisor Superv = new User_Supervisor("example_username", "example_password");
-        
-        Superv.getUser_Admin();
-
-        // Access instance variables
-    
-
-    }
+    }*/
 }
+
