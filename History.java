@@ -6,4 +6,12 @@ class History{
         this.HistoryID = HistoryID;
         this.Usercoordinate = Usercoordinate;
     }
+
+    public void PrintTest(){
+        System.out.println("ID : " + HistoryID + " Usercoordinate : " + Usercoordinate[0] + " , " + Usercoordinate[1]);
+    }
+    @Override
+    public String toString(){
+        return ("ID : " + HistoryID + " Usercoordinate : " + Usercoordinate[0] + " , " + Usercoordinate[1]);
+    }
 }

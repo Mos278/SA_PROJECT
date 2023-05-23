@@ -4,8 +4,13 @@ class Enduser{
         
         System.out.println(UserCoordinate);
         //OutDoor outDoor = new OutDoor(location);
-        WhereIsToilet WhereIsToilet = new WhereIsToilet(UserCoordinate);
-        WhereIsToilet.test();
+
+        AssessLocation location = new AssessLocation(UserCoordinate);
+        WhereIsToilet whereIsToilet = new WhereIsToilet(location);
+        //WhereIsToilet WhereIsToilet = new WhereIsToilet(UserCoordinate);
+
+        //whereIsToilet.ShowToilet();
+      
 
     }
     // test
