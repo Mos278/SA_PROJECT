@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class WhereIsToilet {
     Scanner sc = new Scanner(System.in);
     DB_Main db_Main = new DB_Main();
+    int H = 1;
+    
     //User_Admin ad = new User_Admin("somchai","123","Admin");
     //User_Supervisor Superv = new User_Supervisor("somying","321","Supervisor");
     
@@ -23,6 +25,9 @@ public class WhereIsToilet {
 
     WhereIsToilet(String username,String password,String role ){
         System.out.println("Welcome " + username);
+    }
+    WhereIsToilet(){
+        CreateDB();//Ex case
     }
 
     public void AdMin_EditImage(){
@@ -46,12 +51,14 @@ public class WhereIsToilet {
 
     private void CaseInDoor(InDoor location) {
         location = ShowBuilding(db_Main.getBuilding(),location);//select Building and Floor/level
-
+        
         History H2 = new History("H2", location.UserCoordinate);
         db_Main.update(H2);
 
         //location.ShowFloor();
+        System.out.println("---------------------------------Image-----------------------------------");
         System.out.println("Show Map : " + location.showMap());
+        System.out.println("-------------------------------------------------------------------------");
 
         //location.showMap(db_Main.getBuilding());
         
@@ -63,12 +70,13 @@ public class WhereIsToilet {
         ArrayList<Toilet> toilet_list = db_Main.getToilet();
         Toilet toilet = location.CalculateRoute(toilet_list);
         String route = location.ShowRoute(toilet);
+        System.out.println("---------------------------------image-----------------------------------");
         System.out.println(route);
-        // H1.PrintTest();
-        // setDB
-
-        // setDB
+        System.out.println("-------------------------------------------------------------------------");
+        
     }
+
+   
 
     private InDoor ShowBuilding(ArrayList<Building> BuildingList,InDoor location) {// InDoor2
         int i = 1;
@@ -103,6 +111,8 @@ public class WhereIsToilet {
        
         
     }
+
+    
 
     
 
@@ -141,12 +151,12 @@ public class WhereIsToilet {
         Toilet t3 = new Toilet("T003",FT3,"toilet3","picture/toilet3.jpg",null, 1);
         Building B1 = new Building(FB1,"B001","KMITL_CS",ListMap_B1,t3,1,4);
  
-        Map m1 = new Map(FB1,"picture/Map1.jpg");
+        Map m1 = new Map("M001",FB1,"picture/Map1.jpg");
         Toilet t1 = new Toilet("T001",FT1,"toilet1","picture/toilet1.jpg",null, 0);
         Toilet t2 = new Toilet("T002",FT2,"toilet2","picture/toilet2.jpg",null, 0);
         t3.setbuilding(B1);
         
-        Notification n1 = new Notification("N001", t1, LocalDateTime.now(), "picture/toilet4.jpg");
+        Notification n1 = new Notification("N001", t1, LocalDateTime.now(), "picture/toilet4.jpg","Test");
         
         db_Main.update(B1);
         db_Main.update(m1);
@@ -171,8 +181,11 @@ public class WhereIsToilet {
             t.setToilet(db_Main.gettoilet_list().get(set-1));
             //a.setToilet(db_Main.gettoilet_list(set));
             System.out.println("enter your new picture : ");
-            String newpic = sc.next();
-            Notification n2 = new Notification("N002", t, LocalDateTime.now(), newpic+".jpg");
+            String newpic= sc.next();
+            System.out.println("enter your Description : ");
+            sc.nextLine();/*clear nextLine */
+            String Description = sc.nextLine();
+            Notification n2 = new Notification("N002", t, LocalDateTime.now(), newpic+".jpg",Description);
             db_Main.update(n2);
             System.out.println("Notification success :"+ n2);
         } else return;

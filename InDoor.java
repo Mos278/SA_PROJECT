@@ -1,7 +1,7 @@
 
 class InDoor extends AssessLocation {
-    protected int floor;
-    protected Building building;
+    private int floor;
+    private Building building;
     private String image;
     InDoor(AssessLocation location) {
         super(location.UserCoordinate);
@@ -24,12 +24,12 @@ class InDoor extends AssessLocation {
     public void ShowFloor(){//test
         System.out.printf("%s , %d" , building,floor);
     }
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         float[] UserCoordinate = {0.1f, 2.0f};
         AssessLocation ass = new AssessLocation(UserCoordinate);
         InDoor inDoor = new InDoor(ass);
 
 
-    }
+    }*/
    
 }

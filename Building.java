@@ -1,6 +1,6 @@
-import java.awt.image.BufferedImage;
+//import java.awt.image.BufferedImage;
 class Building{
-    private float [] mapCoordinate = new float[2];
+    private float [] mapCoordinate;
     private String buildingID;
     private String buildingName;
     private String[] pictureMap;

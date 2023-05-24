@@ -5,9 +5,11 @@ import javax.imageio.ImageIO;*/
 
 
 class Map {
+    private String IDmap;
     private float[] mapCoordinate;
     private String pictureMap;
-    Map(float[] mapCoordinate, String map) /*throws IOException*/ {
+    Map(String IDmap,float[] mapCoordinate, String map) /*throws IOException*/ {
+        this.IDmap = IDmap;
         this.pictureMap = map;
         this.mapCoordinate = mapCoordinate;
     }
